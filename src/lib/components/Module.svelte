@@ -3,6 +3,8 @@
 	import TitleModule from '$lib/components/TitleModule.svelte';
     import Section from '$lib/components/Section.svelte';
 
+    export let moduleType: string;
+
 	let dynamicComponents: any[] = [TitleModule, AddNewModule];
 
 	async function addDynamicComponent(index: number) {
@@ -13,6 +15,8 @@
 		];
 	}
 </script>
+
+<h1>type</h1>
 
 {#each dynamicComponents as element, index (index)}
 	{#if element === AddNewModule}
