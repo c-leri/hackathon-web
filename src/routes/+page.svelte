@@ -27,7 +27,7 @@ async function addDynamicComponent(index: number) {
 				{index}
 				<AddNewModule on:click={() => addDynamicComponent(index)}>Ajouter un module</AddNewModule>
 			{:else if element === Module}
-			<div class="border-solid border-2 border-sky-500">
+			<div class="border-solid border-2 border-sky-500 p-8 m-4 space-y-4">
 				<Module moduleType={selectedType} />
 				</div>
 			{:else}
