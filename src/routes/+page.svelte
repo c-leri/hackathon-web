@@ -36,5 +36,5 @@ async function addDynamicComponent(index: number) {
 			{/if}
 		{/each}
 	</div>
-	<div class="bg-surface-500 rounded-l-lg h-full p-2">column 3</div>
+	<div class="bg-surface-500 rounded-l-lg h-full p-2">Colonne 3 pour changer le style mais on a pas eu le temps :D</div>
 </div>
