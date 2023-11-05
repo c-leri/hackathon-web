@@ -14,8 +14,8 @@
 </script>
 
 <div class="grid grid-cols-4 gap-5 min-h-[100vh] py-5">
-	<div class="h-full"><LeftWindow bind:selectedOption={selectedType} /></div>
-	<div class="h-full col-span-2 rounded-sm bg-surface-100 text-surface-900 p-2 text-center">
+	<div class="h-full print:hidden"><LeftWindow bind:selectedOption={selectedType} /></div>
+	<div class="h-full col-span-2 print:col-span-4 rounded-sm bg-surface-100 text-surface-900 p-2 text-center">
 		{#each dynamicComponents as element}
 			{#if element === AddNewModule}
 				<AddNewModule on:click={() => addDynamicComponent()}>Ajouter un module</AddNewModule>
@@ -28,7 +28,7 @@
 			{/if}
 		{/each}
 	</div>
-	<div class="bg-surface-500 rounded-l-lg h-full p-2">
+	<div class="bg-surface-500 rounded-l-lg h-full p-2 print:hidden">
 		Colonne 3 pour changer le style mais on a pas eu le temps :D
 	</div>
 </div>

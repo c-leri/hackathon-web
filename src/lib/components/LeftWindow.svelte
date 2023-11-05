@@ -46,4 +46,6 @@ let footerChecked = false;
         <input type="checkbox" bind:checked={footerChecked} />
         Footer
       </label>
+
+      <button on:click={()=> print()}>Imprimer</button>
 </div>

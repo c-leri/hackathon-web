@@ -8,6 +8,6 @@
 	}
 </script>
 
-<button class="btn variant-outline-surface w-full hover:variant-filled-surface" on:click={click}>
+<button class="btn variant-outline-surface print:hidden w-full hover:variant-filled-surface" on:click={click}>
 	<slot />
 </button>
