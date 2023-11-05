@@ -19,9 +19,9 @@
   
   {#if isOpen}
     <ul>
-      <li on:click={() => selectOption('Option 1')}>Option 1</li>
-      <li on:click={() => selectOption('Option 2')}>Option 2</li>   
-      <li on:click={() => selectOption('Option 3')}>Option 3</li>
+      <li> <button on:click={() => selectOption('Option 1')}>Option 1</button></li>
+      <li> <button on:click={() => selectOption('Option 2')}>Option 2</button></li>   
+      <li> <button on:click={() => selectOption('Option 3')}>Option 3</button></li>
     </ul>
   {/if}
   {:else}
