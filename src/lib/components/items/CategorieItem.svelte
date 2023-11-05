@@ -1,1 +1,1 @@
-<div>c</div>
+<div>Ceci est la catégorie</div>

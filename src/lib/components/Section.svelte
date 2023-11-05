@@ -2,7 +2,7 @@
 	import AddNewModule from '$lib/components/AddNewModule.svelte';
 	import MasterItem from '$lib/components/MasterItem.svelte';
 
-	let dynamicComponents: any[] = [MasterItem, AddNewModule];
+	let dynamicComponents: any[] = [MasterItem];
     export let moduleType: string;
 
 
@@ -10,8 +10,7 @@
 	async function addItem() {
 		dynamicComponents = [
 			...dynamicComponents.slice(0, dynamicComponents.length - 1),
-            MasterItem,
-			AddNewModule,
+            MasterItem
 		
 		];
 	}

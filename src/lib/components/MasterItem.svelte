@@ -9,9 +9,10 @@
     import RaisonsItem from "./items/RaisonsItem.svelte";
     import RemarquesItem from "./items/RemarquesItem.svelte";
     import SignatureItem from "./items/SignatureItem.svelte";
-    import SouscategorieItem from "./items/SouscategorieItem.svelte";
+    import SousCategorieItem from "./items/SousCategorieItem.svelte";
     import SousEtapeItem from "./items/SousEtapeItem.svelte";
     import SousTitreItem from "./items/SousTitreItem.svelte";
+    import TitreItem from "./items/TitreItem.svelte";
 
 
     let isOpen = false;
@@ -57,13 +58,15 @@
     RaisonsItem,
     RemarquesItem,
     SignatureItem, 
-    SouscategorieItem,
+    SousCategorieItem,
     SousEtapeItem,
     SousTitreItem,
+    TitreItem
   };
 
+
     function getItemFileName(item: string){
-        return item.trim() + "Item";
+        return item.replaceAll(' ', '') + "Item";
     }
   
     function toggleDropdown() {

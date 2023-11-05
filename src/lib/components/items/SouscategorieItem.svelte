@@ -1,1 +1,1 @@
-<div>k</div>
+<div>Ceci est la sous-catégorie</div>
