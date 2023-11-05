@@ -12,7 +12,6 @@
     import SouscategorieItem from "./items/SouscategorieItem.svelte";
     import SousEtapeItem from "./items/SousEtapeItem.svelte";
     import SousTitreItem from "./items/SousTitreItem.svelte";
-    import TitreItem from "./items/TitreItem.svelte";
 
 
     let isOpen = false;
@@ -61,7 +60,6 @@
     SouscategorieItem,
     SousEtapeItem,
     SousTitreItem,
-    TitreItem
   };
 
     function getItemFileName(item: string){
