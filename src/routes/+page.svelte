@@ -58,7 +58,7 @@
 			</div>
 		{/each}
 	</div>
-	<div class=" rounded-l-lg h-full p-2 print:hidden">
+	<div class=" rounded-l-lg h-full p-2 print:hidden bg-surface-600">
 		<h1>Choississez une couleur de fond : </h1>
 		<div class="grid grid-cols-6 gap-3">
 			{#each colors as color, i}
