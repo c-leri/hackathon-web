@@ -21,7 +21,7 @@
 	{#if element === AddNewModule}
 		<AddNewModule on:click={() => addItem()}>+</AddNewModule>
         {:else if element === Item}
-		<Item bind:moduleType={moduleType} />
+		<Item moduleType={moduleType} />
 	 {:else}
 		<svelte:component this={element} />
 	{/if}

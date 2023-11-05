@@ -4,6 +4,9 @@
     import Section from '$lib/components/Section.svelte';
 
     export let moduleType: string;
+     
+    //Ugly way to disconnect module and its children from page
+    const endModule = moduleType;
 
 	let dynamicComponents: any[] = [TitleModule, AddNewModule];
 
@@ -16,14 +19,14 @@
 	}
 </script>
 
-<h1>{moduleType}</h1>
+<h1>{endModule}</h1>
 
 {#each dynamicComponents as element, index (index)}
 	{#if element === AddNewModule}
 		{index}
 		<AddNewModule on:click={() => addDynamicComponent(index)}>Ajouter une section</AddNewModule>
     {:else if element === Section}
-		<Section bind:moduleType={moduleType} />
+		<Section moduleType={endModule} />
         {:else}
 		<svelte:component this={element} />
 	{/if}

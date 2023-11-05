@@ -46,11 +46,9 @@
   <button on:click={toggleDropdown}>Toggle Dropdown</button>
   
   {#if isOpen}
-    <ul>
-      <li> <button on:click={() => selectOption('Option 1')}>Option 1</button></li>
-      <li> <button on:click={() => selectOption('Option 2')}>Option 2</button></li>   
-      <li> <button on:click={() => selectOption('Option 3')}>Option 3</button></li>
-    </ul>
+    {#each possibleItems() as item (item)}
+    <button on:click={() => selectOption(item)}>{item}</button>
+    {/each}
   {/if}
   {:else}
   <p>Selected Option: {selectedOption}</p> 

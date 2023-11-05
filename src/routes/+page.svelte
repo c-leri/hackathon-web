@@ -27,7 +27,7 @@ async function addDynamicComponent(index: number) {
 				{index}
 				<AddNewModule on:click={() => addDynamicComponent(index)}>Ajouter un module</AddNewModule>
 			{:else if element === Module}
-				<Module bind:moduleType={selectedType} />
+				<Module moduleType={selectedType} />
 			{:else}
 				{index}
 				<svelte:component this={element} />

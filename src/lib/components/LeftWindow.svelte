@@ -13,14 +13,12 @@ export let selectedOption = '';
 
     function selectOption(option: string) {
       selectedOption = option;
-      console.log(option);
-    }    
+        }    
 
 </script>
 
 <div>
     {#each ModuleTypes as moduleType (moduleType)}
-    {console.log(moduleType)}
-      <button class="variant-outline-surface w-full hover:variant-filled-surface" on:click={() => selectOption(moduleType)}>{moduleType}</button>
+          <button class="variant-outline-surface w-full hover:variant-filled-surface" on:click={() => selectOption(moduleType)}>{moduleType}</button>
     {/each}
 </div>
