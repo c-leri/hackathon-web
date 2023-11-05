@@ -11,11 +11,22 @@
 			dynamicComponents = [...dynamicComponents, Module];
 		}
 	}
+	const colors = [
+		'bg-surface-50',
+		'bg-red-50',
+		'bg-green-50',
+		'bg-blue-50',
+		'bg-pink-50',
+		'bg-primary-50'
+	];
+	let selected = colors[0];
 </script>
 
 <div class="grid grid-cols-4 gap-5 min-h-[100vh] py-5">
 	<div class="h-full print:hidden"><LeftWindow bind:selectedOption={selectedType} /></div>
-	<div class="h-full col-span-2 print:col-span-4 rounded-sm bg-surface-100 text-surface-900 p-2 text-center">
+	<div
+		class="h-full col-span-2 print:col-span-4 rounded-sm {selected} text-surface-900 p-2 text-center"
+	>
 		{#each dynamicComponents as element}
 			{#if element === AddNewModule}
 				<AddNewModule on:click={() => addDynamicComponent()}>Ajouter un module</AddNewModule>
@@ -28,7 +39,32 @@
 			{/if}
 		{/each}
 	</div>
-	<div class="bg-surface-500 rounded-l-lg h-full p-2 print:hidden">
-		Colonne 3 pour changer le style mais on a pas eu le temps :D
+	<div class=" rounded-l-lg h-full p-2 print:hidden">
+		Choississez une couleur de fond : 
+		<div class="grid grid-cols-6 gap-3">
+			{#each colors as color, i}
+				<button
+					aria-current={selected === color}
+					class={`aspect-square rounded-full color-picker text-surface-800 ${color}`}
+					on:click={() => (selected = color)}
+				>
+					{i + 1}
+				</button>
+			{/each}
+		</div>
 	</div>
 </div>
+
+<style>
+	.color-picker {
+		transform: translate(-2px, -2px);
+		filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.2));
+		transition: all 0.1s;
+	}
+
+	.color-picker[aria-current='true'] {
+		transform: none;
+		filter: none;
+		box-shadow: inset 3px 3px 4px rgba(0, 0, 0, 0.2);
+	}
+</style>
