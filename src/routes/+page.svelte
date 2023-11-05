@@ -1,31 +1,29 @@
 <script lang="ts">
 	import AddNewModule from '$lib/components/AddNewModule.svelte';
 	import Module from '$lib/components/Module.svelte';
+	import TitleModule from '$lib/components/TitleModule.svelte';
 
-	let elements: { id: number; element: any }[] = [{ id: 0, element: AddNewModule }];
+	let dynamicComponents: any[] = [AddNewModule];
 
-	async function addModule(index: number) {
-		elements = [
-			...elements.slice(0, index + 1),
-			{ id: index + 1, element: Module },
-			{ id: index + 2, element: AddNewModule },
-			...elements
-				.slice(index + 1)
-				.map((element) => ({ id: element.id + 2, element: element.element }))
-		];
-	}
+async function addDynamicComponent(index: number) {
+  dynamicComponents = [
+	...dynamicComponents.slice(0, index + 1),
+	Module,
+	...dynamicComponents.slice(index + 1),
+  ];
+}
 </script>
 
 <div class="grid grid-cols-4 gap-5 min-h-[100vh] py-5">
 	<div class="h-full">column 1</div>
 	<div class="h-full col-span-2 rounded-sm bg-surface-100 text-surface-900 p-2 text-center">
-		{#each elements as element (element.id)}
-			{#if element.element === AddNewModule}
-				{element.id}
-				<AddNewModule on:click={() => addModule(element.id)} />
+		{#each dynamicComponents as element, index (index)}
+			{#if element === AddNewModule}
+				{index}
+				<AddNewModule on:click={() => addDynamicComponent(index)}>Ajouter un module</AddNewModule>
 			{:else}
-				{element.id}
-				<svelte:component this={element.element} />
+				{index}
+				<svelte:component this={element} />
 			{/if}
 		{/each}
 	</div>

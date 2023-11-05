@@ -9,5 +9,5 @@
 </script>
 
 <button class="btn variant-outline-surface w-full hover:variant-filled-surface" on:click={click}>
-	Ajouter un module
+	<slot />
 </button>
