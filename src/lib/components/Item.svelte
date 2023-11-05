@@ -4,6 +4,7 @@
 
     export let moduleType: string;
 
+    //List of possible items depending on moduleType
     let possibleItems = () => {
         switch (moduleType) {
             case ("Titre"):
@@ -36,20 +37,18 @@
   
     function selectOption(option: string) {
       selectedOption = option;
-      isOpen = false;
     }
   </script>
   
-  {#if !selectedOption}
-    
-
-  <button on:click={toggleDropdown}>Toggle Dropdown</button>
-  
-  {#if isOpen}
-    {#each possibleItems() as item (item)}
-    <button on:click={() => selectOption(item)}>{item}</button>
-    {/each}
-  {/if}
+  {#if !selectedOption} 
+    {#if isOpen}
+    <button class="btn-xl" on:click={toggleDropdown}>Annuler</button>
+        {#each possibleItems() as item (item)}
+        <button class="btn-xl" on:click={() => selectOption(item)}>{item}</button>
+        {/each}
+    {:else}
+    <button class="btn-xl" on:click={toggleDropdown}>Sélectionner un élément</button>
+    {/if}
   {:else}
   <p>Selected Option: {selectedOption}</p> 
   {/if}
