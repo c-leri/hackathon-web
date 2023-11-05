@@ -22,7 +22,13 @@
 	}
 </script>
 
-<h1>{endModule}</h1>
+<h1>
+	<input
+		class="bg-transparent border-transparent border-b-black print:text-center"
+		type="text"
+		value={`${endModule}`}
+	/>
+</h1>
 
 <TitleModule />
 <AddNewModule on:click={() => addDynamicComponent()}>Ajouter une section</AddNewModule>

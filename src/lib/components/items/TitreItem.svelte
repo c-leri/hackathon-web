@@ -1,1 +1,7 @@
-<div>Ceci est le titre</div>
+<div>
+	<input
+		class="bg-transparent border-transparent border-b-black print:text-center"
+		type="text"
+		value="Titre"
+	/>
+</div>
