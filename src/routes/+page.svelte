@@ -4,37 +4,31 @@
 	import LeftWindow from '$lib/components/LeftWindow.svelte';
 
 	let dynamicComponents: any[] = [AddNewModule];
-	let selectedType = "";
+	let selectedType = '';
 
-
-
-async function addDynamicComponent(index: number) {
-	if (selectedType != ""){
-  dynamicComponents = [
-	...dynamicComponents.slice(0, index + 1),
-	Module,
-	...dynamicComponents.slice(index + 1),
-  ];
+	async function addDynamicComponent() {
+		if (selectedType != '') {
+			dynamicComponents = [...dynamicComponents, Module];
+		}
 	}
-}
 </script>
 
 <div class="grid grid-cols-4 gap-5 min-h-[100vh] py-5">
-	<div class="h-full"><LeftWindow bind:selectedOption={selectedType}/></div>
+	<div class="h-full"><LeftWindow bind:selectedOption={selectedType} /></div>
 	<div class="h-full col-span-2 rounded-sm bg-surface-100 text-surface-900 p-2 text-center">
-		{#each dynamicComponents as element, index (index)}
+		{#each dynamicComponents as element}
 			{#if element === AddNewModule}
-				{index}
-				<AddNewModule on:click={() => addDynamicComponent(index)}>Ajouter un module</AddNewModule>
+				<AddNewModule on:click={() => addDynamicComponent()}>Ajouter un module</AddNewModule>
 			{:else if element === Module}
-			<div class="border-solid border-2 border-sky-500 p-8 m-4 space-y-4">
-				<Module moduleType={selectedType} />
+				<div class="border-solid border-2 border-sky-500 p-8 m-4 space-y-4">
+					<Module moduleType={selectedType} />
 				</div>
 			{:else}
-				{index}
 				<svelte:component this={element} />
 			{/if}
 		{/each}
 	</div>
-	<div class="bg-surface-500 rounded-l-lg h-full p-2">Colonne 3 pour changer le style mais on a pas eu le temps :D</div>
+	<div class="bg-surface-500 rounded-l-lg h-full p-2">
+		Colonne 3 pour changer le style mais on a pas eu le temps :D
+	</div>
 </div>
