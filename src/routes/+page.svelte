@@ -24,14 +24,12 @@ async function addDynamicComponent(index: number) {
 	<div class="h-full col-span-2 rounded-sm bg-surface-100 text-surface-900 p-2 text-center">
 		{#each dynamicComponents as element, index (index)}
 			{#if element === AddNewModule}
-				{index}
 				<AddNewModule on:click={() => addDynamicComponent(index)}>Ajouter un module</AddNewModule>
 			{:else if element === Module}
 			<div class="border-solid border-2 border-sky-500 p-8 m-4 space-y-4">
 				<Module moduleType={selectedType} />
 				</div>
 			{:else}
-				{index}
 				<svelte:component this={element} />
 			{/if}
 		{/each}

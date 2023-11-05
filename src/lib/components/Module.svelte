@@ -23,7 +23,6 @@
 
 {#each dynamicComponents as element, index (index)}
 	{#if element === AddNewModule}
-		{index}
 		<AddNewModule on:click={() => addDynamicComponent(index)}>Ajouter une section</AddNewModule>
     {:else if element === Section}
 		<Section moduleType={endModule} />
