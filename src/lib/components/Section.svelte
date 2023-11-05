@@ -3,6 +3,9 @@
 	import Item from '$lib/components/Item.svelte';
 
 	let dynamicComponents: any[] = [Item, AddNewModule];
+    export let moduleType: string;
+
+
 
 	async function addItem() {
 		dynamicComponents = [
@@ -17,6 +20,8 @@
 {#each dynamicComponents as element}
 	{#if element === AddNewModule}
 		<AddNewModule on:click={() => addItem()}>+</AddNewModule>
+        {:else if element === Item}
+		<Item bind:moduleType={moduleType} />
 	 {:else}
 		<svelte:component this={element} />
 	{/if}

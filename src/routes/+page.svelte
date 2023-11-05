@@ -12,7 +12,7 @@ async function addDynamicComponent(index: number) {
 	if (selectedType != ""){
   dynamicComponents = [
 	...dynamicComponents.slice(0, index + 1),
-	new Module({ props: { moduleType: selectedType } });,
+	Module,
 	...dynamicComponents.slice(index + 1),
   ];
 	}
@@ -26,6 +26,8 @@ async function addDynamicComponent(index: number) {
 			{#if element === AddNewModule}
 				{index}
 				<AddNewModule on:click={() => addDynamicComponent(index)}>Ajouter un module</AddNewModule>
+			{:else if element === Module}
+				<Module bind:moduleType={selectedType} />
 			{:else}
 				{index}
 				<svelte:component this={element} />

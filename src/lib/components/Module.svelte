@@ -16,14 +16,15 @@
 	}
 </script>
 
-<h1>type</h1>
+<h1>{moduleType}</h1>
 
 {#each dynamicComponents as element, index (index)}
 	{#if element === AddNewModule}
 		{index}
 		<AddNewModule on:click={() => addDynamicComponent(index)}>Ajouter une section</AddNewModule>
-	                {:else}
-		{index}
+    {:else if element === Section}
+		<Section bind:moduleType={moduleType} />
+        {:else}
 		<svelte:component this={element} />
 	{/if}
 {/each}
